@@ -3,7 +3,7 @@ export const projects = [
     name: "React Todo",
     link: "https://github.com/MaycolGallo/react-firebase-notes",
     url: "https://reactfirebasenotes.pages.dev/",
-    img: "imgs/React-todo.png",
+    img: "imgs/react-todo.png",
   },
   {
     name: "Frontend Bootcamp",
