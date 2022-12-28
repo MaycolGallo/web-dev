@@ -1,13 +1,11 @@
-import { Navbar } from "./components/Nav";
 import { About } from "./components/About";
 import { Contact } from './components/Contact'
 import { Projects } from "./components/Projects";
 
 function App() {
   return (
-    <main className="">
-      <Navbar />
-      <About />
+    <main className="bg-slate-100">
+      <About/>
 
       <Projects />
 

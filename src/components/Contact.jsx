@@ -4,20 +4,17 @@ import { useRef } from "react";
 
 export function Contact() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
-  React.useEffect(() => {
-    console.log(isInView);
-  }, [isInView]);
+  const isInView = useInView(ref, { once: true, margin:"30px" });
 
   return (
-    <footer ref={ref} className="bg-slate-900 text-slate-100">
+    <footer ref={ref} className="bg-[#0d2129] text-slate-100">
       <motion.div
-        style={{ opacity: isInView ? 1 : 0 }}
+        animate={{ opacity: isInView ? 1 : 0 }}
+        transition={{ duration: 1.25 }}
         className="max-w-md mx-auto py-8 space-y-5 px-2 md:px-0"
       >
         <h1 className="text-4xl md:text-5xl mb-6 text-center font-bold">
-          Trabajemos Juntos.
+          Trabajemos Juntos
         </h1>
         <p className="capitalize text-center text-lg">
           no dude en ponerse en contacto conmigo a traves de estos medios
@@ -28,7 +25,7 @@ export function Contact() {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
               className="w-6 h-6 mr-2"
             >

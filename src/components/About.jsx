@@ -1,35 +1,34 @@
-import { motion } from "framer-motion";
+import { Navbar } from "./Nav";
+import { Divider } from "./divider";
+import { CharacterAnimate } from "./CharacterAnimate";
 
 export function About() {
   return (
     <>
-      <motion.div
-        initial={{ y: "-100%" }}
-        animate={{ y: 35 }}
-        transition={{ duration: 0.9 }}
-        style={{
-          backgroundImage:
-            " linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0))",
-        }}
-        className="max-w-4xl flex flex-col-reverse rounded-lg bg-blue-600 sm:flex-row px-4 items-center mx-5 justify-around md:mx-auto "
-      >
-        <div className="my-6 flex justify-center">
-          <img
-            className="w-52 h-52 rounded-full ring object-cover"
-            src="imgs/lll.jpg"
-            alt=""
-          />
+      <section className="bg-[#0d2129] p-3 lg:p-0">
+        <Navbar />
+
+        <div className="max-w-4xl mx-auto p-12 grid sm:grid-cols-2 ">
+          <div className="my-6 flex justify-center row-start-2 sm:row-start-1">
+            <img
+              className="w-52 h-52 rounded-full ring ring-teal-900 object-cover"
+              src="imgs/lll.jpg"
+              alt="profile pic"
+              loading="lazy"
+            />
+          </div>
+          <div className="space-y-5 my-6 text-center text-white sm:text-left">
+          <CharacterAnimate text="Maycol Gallo Diaz" className="text-4xl"/>
+
+            <h3 className="font-light italic">Desarrollador web</h3>
+            <p className="max-w-sm mx-auto px-2 sm:px-0">
+              Creando aplicaciones web. Buscando las mejores herramientas y
+              mejorando mi aprendizaje con las nuevas tecnologías existentes.
+            </p>
+          </div>
         </div>
-        <div className="space-y-5 my-6 text-center text-white sm:text-left">
-          <h1 className="text-4xl font-bold">Maycol Gallo Diaz</h1>
-          <h3 className="font-light italic">Desarrollador web</h3>
-          <p className="max-w-sm mx-auto px-2 sm:px-0">
-            Creando aplicaciones web. Buscando las mejores herramientas y
-            mejorando el aprendizaje con las nuevas tecnologías existentes
-          </p>
-          <div className="flex items-center justify-center gap-x-3"></div>
-        </div>
-      </motion.div>
+      </section>
+      <Divider />
     </>
   );
 }
