@@ -12,7 +12,7 @@ export function About() {
           <div className="my-6 flex justify-center row-start-2 sm:row-start-1">
             <img
               className="w-52 h-52 rounded-full ring ring-teal-900 object-cover"
-              src="imgs/lll.jpg"
+              src="imgs/profile.jpg"
               alt="profile pic"
               loading="lazy"
             />

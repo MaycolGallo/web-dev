@@ -18,8 +18,8 @@ export function Projects() {
   }, [isInView]);
 
   return (
-    <section ref={container} className="max-w-4xl  mx-auto my-20">
-      <CharacterAnimate text="Mis Proyectos" className="text-5xl p-3" />
+    <section ref={container} className="max-w-screen-[1045px] mx-auto my-20">
+      <CharacterAnimate text="Mis Proyectos" className="text-5xl p-3 text-center" />
 
       <motion.div
         ref={ref}
@@ -30,7 +30,7 @@ export function Projects() {
         {projects.map((p) => (
           <div
             key={p.name}
-            className="max-w-[346px] bg-white rounded-xl hover:scale-110 shadow-md transition-transform"
+            className="max-w-[350px] bg-white rounded-xl hover:scale-110 shadow-md transition-transform"
           >
             <img
               src={p.img}
