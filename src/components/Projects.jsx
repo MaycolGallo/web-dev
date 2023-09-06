@@ -6,12 +6,27 @@ import { CharacterAnimate } from "./CharacterAnimate";
 export function Projects() {
   const ref = useRef(null);
   const container = useRef(null);
-  const isInView = useInView(ref, {
-    root: container,
-    once: true,
+  const isInView = useInView(container, {
+    // once: true,
     // margin: "80%",
-    // amount: 0.5,
+    amount: 1,
   });
+
+  const variantes = {
+    visible: {
+      opacity: 1,
+      y:0,
+      transition:{
+        duration:1,
+        type:'spring',
+        staggerChildren: 0.15
+      }
+    },
+    invisible:{
+      opacity: 0,
+      y:'100%'
+    }
+  }
 
   useEffect(() => {
     console.log("projects inview", isInView);
@@ -22,13 +37,15 @@ export function Projects() {
       <CharacterAnimate text="Mis Proyectos" className="text-5xl p-3 text-center" />
 
       <motion.div
-        ref={ref}
-        animate={{ opacity: isInView ? 1 : 0 }}
-        transition={{ duration: 13.5,delay:23 }}
+      layout
+        initial="invisible"
+        animate="visible"
+        variants={variantes}
         className="flex flex-wrap gap-3 my-5 justify-center"
       >
         {projects.map((p) => (
-          <div
+          <motion.div
+            variants={variantes}
             key={p.name}
             className="max-w-[350px] bg-white rounded-xl hover:scale-110 shadow-md transition-transform"
           >
@@ -49,7 +66,7 @@ export function Projects() {
                 </a>
               </div>
             ) : null}
-          </div>
+          </motion.div>
         ))}
       </motion.div>
     </section>
