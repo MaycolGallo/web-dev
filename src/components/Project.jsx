@@ -1,21 +1,21 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 export function Project({ p }) {
   const ref = useRef(null);
-  const {scrollYProgress} = useScroll({
+  const { scrollYProgress, scrollY } = useScroll({
     target: ref,
   });
   const transY = useTransform(scrollYProgress, [1, 0], [0.5, 1]);
-  const opac = useTransform(scrollYProgress, [1, 0], [0, 1],{});
+  const opac = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  const scaleX = useSpring(scrollYProgress,{stiffness: 100, damping: 30});
 
-  const yeye = useTransform(scrollYProgress,[1,0],[100,0])
   return (
     <motion.div
       ref={ref}
-      style={{ scale: transY,opacity:opac }}
-    //   style={{ y:yeye,opacity:opac }}
-        transition={{ duration: 0.5,type:'spring',bounce:0.5 }}
+      initial={{ opacity: 0 }}
+      style={{ scale: transY, opacity: opac }}
+      transition={{ duration: 0.5, type: "spring", bounce: 0.5 }}
       key={p.name}
       className="max-w-[350px] bg-white rounded-xl shadow-md"
     >
